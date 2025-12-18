@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>הצטרפי לקבוצת הווצאפ</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1477410459637720');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1477410459637720&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <!-- Meta Conversion API (Server-side via browser fallback) -->
+  <script>
+    function trackJoinClick() {
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead');
+      }
+
+      fetch('https://graph.facebook.com/v18.0/1477410459637720/events?access_token=YOUR_ACCESS_TOKEN', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          data: [
+            {
+              event_name: 'Lead',
+              event_time: Math.floor(Date.now() / 1000),
+              action_source: 'website',
+              event_source_url: window.location.href
+            }
+          ]
+        })
+      }).catch(() => {});
+    }
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAkGBwgHBgkIBwgKCgkLDRYPDQwMDR...') center/cover no-repeat fixed;
+      color: #333;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 224, 236, 0.85);
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: auto;
+      padding: 24px 16px 40px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 12px;
+      color: #c2185b;
+    }
+
+    p.subtitle {
+      font-size: 16px;
+      margin-bottom: 28px;
+    }
+
+    .cta-btn {
+      display: block;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      font-size: 20px;
+      padding: 16px;
+      border-radius: 50px;
+      margin: 24px 0 40px;
+      font-weight: bold;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .reviews {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .reviews h2 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: #c2185b;
+    }
+
+    .review {
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 80px;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .review.active {
+      opacity: 1;
+    }
+
+    .review .name {
+      display: block;
+      margin-top: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>💖 הקבוצה שכל הבנות מדברות עליה 💖</h1>
+    <p class="subtitle">טיפים, שיתופים, אווירה טובה וחברות אמיתית – הכול במקום אחד</p>
+
+    <!-- החליפי את הקישור בקישור האמיתי לקבוצת הווצאפ -->
+    <a class="cta-btn" href="https://chat.whatsapp.com/KAmSuiMbrrYGcJoy86uBb0" target="_blank" onclick="trackJoinClick()">
+      להצטרפות לקבוצה
+    </a>
+
+    <div class="reviews">
+      <h2>מה חברות הקבוצה אומרות?</h2>
+
+      <div class="review active">
+        "אני חוסכת מאות שקלים כל חודש! מוצאת כאן קישורים למוצרי בנות במחירים מצחיקים 🛍️💗"
+        <span class="name">– נועה</span>
+      </div>
+
+      <div class="review">
+        "מצאתי פה מוצרים לבנות שלא ראיתי בשום מקום אחר – ובחצי מחיר!"
+        <span class="name">– מאיה</span>
+      </div>
+    </div>
+
+    <footer>
+      הצטרפות חינמית | ניתן לצאת בכל רגע
+    </footer>
+  </div>
+
+  <script>
+    const reviews = document.querySelectorAll('.review');
+    let current = 0;
+
+    setInterval(() => {
+      reviews[current].classList.remove('active');
+      current = (current + 1) % reviews.length;
+      reviews[current].classList.add('active');
+    }, 3000);
+  </script>
+
+</body>
+</html>
+
